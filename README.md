@@ -1,4 +1,4 @@
-# Web-Scraping-Challenge "MIssion to Mars"
+# Web-Scraping-Challenge "Mission to Mars"
 
 ![mission_to_mars](templates/mission_to_mars.jpg)
 
@@ -16,7 +16,6 @@
 **BootStrap** is a free and open-source CSS framework that is meant to help you design websites faster and easier. It includes HTML and CSS based design templates for typography, forms, buttons, tables, navigation, modals, image carousels, etc. It also gives you support for JavaScript plugins.
 
 **BeautifulSoup** is a Python library for pulling data out of HTML and XML files. It creates a parse tree for parsed pages that can be used to extract data from HTML, which is useful for web scraping.  (Parse is the process of analyzing a string of symbols, either in natural language, computer languages or data structures, conforming to the rules of a formal grammar)
-https://funthon.files.wordpress.com/2017/05/bs.png?w=772
 
 
-Data, images and tables were pulled from NASA Mars News, Jet Propulsion Laboratory, Mars Weather Twitter Account, and USGS Astrogeology
+*Data, images and tables were pulled from NASA Mars News, Jet Propulsion Laboratory, Mars Weather Twitter Account, and USGS Astrogeology*
