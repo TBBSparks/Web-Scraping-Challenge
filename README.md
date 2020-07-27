@@ -1,6 +1,6 @@
 # Web-Scraping-Challenge "Mission to Mars"
 
-![mission_to_mars](templates/mission_to_mars.jpg)
+![mission_to_mars](templates/pia23828-main-16.jpg)
 
 **A project designed to show the latest data about Mars on a web page through the use of web scraping, MongoDB, BootStrap, BeautifulSoup and Flask**
 
