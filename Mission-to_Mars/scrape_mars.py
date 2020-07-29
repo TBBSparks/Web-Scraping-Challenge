@@ -22,11 +22,10 @@ def scrape_news():
     html = browser.html
     time.sleep(10) # Sleep for 10 seconds
     soup = bs(html, "html.parser")
-    #latest_news_date = (soup.find_all('div', class_="list_date"))[0].get_text()
+
     latest_news_title = soup.find("div", class_="content_title").text
     latest_news_paragraph = soup.find("div", class_="article_teaser_body").text
     
-    #mars_web['latest_news_date'] = latest_news_date
     mars_web["latest_news_title"] = latest_news_title
     mars_web["latest_news_paragraph"] = latest_news_paragraph
    
@@ -39,7 +38,7 @@ def scrape_marsImage():
     
     url = 'https://www.jpl.nasa.gov/spaceimages/?search=&category=Mars'
     browser.visit(url)
-    time.sleep(5) # Sleep for 5 seconds
+    time.sleep(10) # Sleep for 10 seconds
     html=browser.html
     soup = bs(html, 'html.parser')
     
@@ -58,12 +57,11 @@ def scrape_marsTwitter():
 
     url = 'https://twitter.com/marswxreport?lang=en'
     browser.visit(url)
-    time.sleep(5) # Sleep for 5 seconds
+    time.sleep(10) # Sleep for 10 seconds
     html=browser.html
     soup = bs(html, 'html.parser')
     
-    #mars_weather = (soup.find_all('p', class_='TweetTextSize TweetTextSize--normal js-tweet-text tweet-text')[0].get_text())
-    mars_weather = soup.find_all('div', class_='js-tweet-text-container')
+    mars_weather = soup.find('span', text=re.compile("InSight")).text.strip()
     mars_web['mars_weather'] = mars_weather
     
     browser.quit()      
@@ -74,7 +72,7 @@ def scrape_marsFacts():
     
     url = 'https://space-facts.com/mars/'
     browser.visit(url)
-    time.sleep(5) # Sleep for 5 seconds
+    time.sleep(10) # Sleep for 10 seconds
     html=browser.html
     soup = bs(html, 'html.parser')
     tables_df = ((pd.read_html(url))[0]).rename(columns={0: "Attribute", 1: "Value"}).set_index(['Attribute'])
@@ -90,7 +88,7 @@ def scrape_marsH1Cerberus():
 
     url = 'https://astrogeology.usgs.gov/search/map/Mars/Viking/cerberus_enhanced'
     browser.visit(url)
-    time.sleep(5) # Sleep for 5 seconds
+    time.sleep(10) # Sleep for 10 seconds
     html=browser.html
     soup = bs(html, 'html.parser')
     cerberus_url = (soup.find_all('div', class_='downloads')[0].li.a.get('href'))
@@ -104,7 +102,7 @@ def scrape_marsH2Schiaparelli():
     browser = init_browser()
     url = 'https://astrogeology.usgs.gov/search/map/Mars/Viking/schiaparelli_enhanced'
     browser.visit(url)
-    time.sleep(5) # Sleep for 5 seconds
+    time.sleep(10) # Sleep for 10 seconds
     html=browser.html
     soup = bs(html, 'html.parser')
     schiaparelli_url = (soup.find_all('div', class_='downloads')[0].li.a.get('href'))
@@ -118,7 +116,7 @@ def scrape_marsH3SyrtisMajor():
     browser = init_browser()
     url = 'https://astrogeology.usgs.gov/search/map/Mars/Viking/syrtis_major_enhanced'
     browser.visit(url)
-    time.sleep(5) # Sleep for 5 seconds
+    time.sleep(10) # Sleep for 10 seconds
     html=browser.html
     soup = bs(html, 'html.parser')
     syrtis_major_url = (soup.find_all('div', class_='downloads')[0].li.a.get('href'))
@@ -132,7 +130,7 @@ def scrape_marsH4VallesMarineris():
     browser = init_browser()
     url = 'https://astrogeology.usgs.gov/search/map/Mars/Viking/valles_marineris_enhanced'
     browser.visit(url)
-    time.sleep(5) # Sleep for 5 seconds
+    time.sleep(10) # Sleep for 10 seconds
     html=browser.html
     soup = bs(html, 'html.parser')
     valles_marineries_url= (soup.find_all('div', class_='downloads')[0].li.a.get('href'))
