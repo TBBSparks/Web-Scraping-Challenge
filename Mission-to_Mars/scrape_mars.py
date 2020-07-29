@@ -20,15 +20,15 @@ def scrape_news():
     url = 'https://mars.nasa.gov/news/?page=0&per_page=40&order=publish_date+desc%2Ccreated_at+desc&search=&category=19%2C165%2C184%2C204&blank_scope=Latest'
     browser.visit(url)
     html = browser.html
-    time.sleep(5) # Sleep for 5 seconds
-    soup = bs(html, 'html.parser')
+    time.sleep(10) # Sleep for 10 seconds
+    soup = bs(html, "html.parser")
     #latest_news_date = (soup.find_all('div', class_="list_date"))[0].get_text()
-    latest_news_title = soup.find('div', class_='content_title').text
-    latest_news_paragraph = soup.find('div', class_='article_teaser_body').text
+    latest_news_title = soup.find("div", class_="content_title").text
+    latest_news_paragraph = soup.find("div", class_="article_teaser_body").text
     
     #mars_web['latest_news_date'] = latest_news_date
-    mars_web['latest_news_title'] = latest_news_title
-    mars_web['latest_news_paragraph'] = latest_news_paragraph
+    mars_web["latest_news_title"] = latest_news_title
+    mars_web["latest_news_paragraph"] = latest_news_paragraph
    
     browser.quit()
     return mars_web
